@@ -1,0 +1,12 @@
+%h1
+  %span= @todo_list
+  %span.small
+    = link_to "Edit", [:edit, @todo_list], class: "btn btn-default"
+    = link_to "Delete", @todo_list, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
+
+.todo-items.list-group
+  - @todo_list.todo_items.each do |todo_item|
+    .list-group-item{class: "todo-item", id: dom_id(todo_item), data: {url: url_for(todo_item)}}
+      = render todo_item
+  .list-group-item
+    = render partial: "todo_items/form", locals: { todo_item: @todo_list.todo_items.build }

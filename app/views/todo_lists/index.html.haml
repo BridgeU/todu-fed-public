@@ -1,0 +1,11 @@
+%h1 Lists
+
+.list-group
+  - @todo_lists.each do |list|
+    = link_to list, class: "list-group-item" do
+      = list
+      .badge= list.todo_items.count
+
+= link_to new_todo_list_path, class: "btn btn-default" do
+  %span.glyphicon.glyphicon-plus
+  New list

@@ -1,0 +1,63 @@
+# Some style guidelines are important, but can't necessarily be trivially fixed
+# because we don't know the best solution yet. We want our linting to be
+# *useful* so developers shouldn't be distracted with warnings they can't do
+# anything about.
+#
+# This file disables style guildelines we need a better solution for before we
+# can fix.
+#
+# TODO: Add JIRA tickets for each of these so that we remember to go back and
+# address the issues
+
+# This cop is enabled when TargetRubyVersion is 2.3 or higher
+#
+# Implementing its advice will help with Ruby 3.0 compatibility, but isn't a
+# trivial change, and might not even be possible until our gem dependencies are
+# updated to properly handle frozen strings.
+#
+# See: https://wyeworks.com/blog/2015/12/1/immutable-strings-in-ruby-2-dot-3
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# # The codebase needs documentation, but the first step is probably in a wiki so
+# # that non-technical people can read it too.
+# Style/Documentation:
+#   Enabled: false
+
+# Improving the size and complexity of our classes/methods is not high priority
+# while we're getting used to the rest of the style guide
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+## Disable Autocorrects
+# Some autocorrects break our code, which is Not Ok(tm). Usually this happens
+# where code isn't written in the best way, but Rubocop can't fix it without
+# knowing the context
+
+# # This causes a syntax error where we've used `[if x then y]` in array literals
+# Style/IfUnlessModifier:
+#   AutoCorrect: false
+# 
+# # Rubocop optimises away what it thinks is a multiline string concatenation, but
+# # is actually a repeated array append
+# Style/LineEndConcatenation:
+#   AutoCorrect: false
+# 
+# # This breaks where we have some strange nesting around a render:json call
+# Style/RedundantParentheses:
+#   AutoCorrect: false
+
+Style/Documentation:
+  Enabled: false

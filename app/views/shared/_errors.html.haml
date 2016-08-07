@@ -1,0 +1,7 @@
+%p
+  = pluralize(object.errors.size, "error")
+  stopped this form being saved
+
+%ul
+  - object.errors.full_messages.each do |error|
+    %li= error

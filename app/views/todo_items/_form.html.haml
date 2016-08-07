@@ -1,0 +1,5 @@
+= form_for [todo_item.todo_list, todo_item], class: "" do |f|
+  .form-group.todo-details
+    = f.text_field :title, placeholder: "Title", autofocus: true, class: "form-control todo-title"
+    -# = f.text_area :description, placeholder: "Description (optional)", class: "form-control todo-description"
+  = f.submit "Add item", class: "btn btn-primary"
